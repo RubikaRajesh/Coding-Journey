@@ -1,0 +1,12 @@
+//leetcode-easy-array1
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int nl=nums.length;
+        int[] ans=new int[nl];
+        int ind=0;
+        for(int i=0;i<n;i++){
+            ans[ind++]=nums[i];
+            ans[ind++]=nums[i+n];
+        }return ans;
+    }
+}
