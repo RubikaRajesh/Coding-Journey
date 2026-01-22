@@ -1,0 +1,15 @@
+//leetcode-arrays2-easy
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int n=nums.length;
+        int[] ans=new int[n];
+        int j=0;
+        int curr=0;
+        for(int num:nums){
+        for(int i=0;i<n;i++){
+            if(num>nums[i]){
+                curr++;
+        }
+        }ans[j]=curr;j++;curr=0;
+    }return ans;
+}}
