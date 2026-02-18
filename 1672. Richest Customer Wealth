@@ -1,0 +1,12 @@
+//1672. Richest Customer Wealth-leetcode-easy
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int max=0;
+        for(int[] cust:accounts){
+            int count=0;
+            for(int banks:cust){
+                count+=banks;
+            }max=Math.max(max,count);
+        }return max;
+    }
+}
