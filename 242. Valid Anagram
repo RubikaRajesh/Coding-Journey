@@ -1,0 +1,51 @@
+//242. Valid Anagram - strings-easy
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()) return false;
+        int[] count = new int[26];
+        for(int i=0;i<s.length();i++)
+        {
+          count[s.charAt(i)-'a']++;
+          count[t.charAt(i)-'a']--;
+        }
+        for(int i =0;i< count.length;i++)
+        {
+            if(count[i]!=0) return false;
+        }
+        return true;
+    }
+}
+
+// class Solution {
+//     public boolean isAnagram(String s, String t) {
+//         char[] sChar = s.toCharArray();
+//         char[] tChar = t.toCharArray();
+//         Arrays.sort(sChar);
+//         Arrays.sort(tChar);
+//         return Arrays.equals(sChar, tChar);
+//     }
+// }
+
+
+// class Solution {
+//     public boolean isAnagram(String s, String t) {
+//         HashMap<Character,Integer> set= new HashMap<>();
+//         if(s.length()!=t.length()){
+//             return false;
+//         }
+//         for(char ch:s.toCharArray()){
+//                 set.put(ch,set.getOrDefault(ch,0)+1);
+//         }
+//         for(char ch:t.toCharArray()){
+//             if(set.containsKey(ch)){
+//                 set.put(ch,set.get(ch)-1);
+//             }else{return false;}
+//         }
+//         for(int val:set.values()){
+//             if(val!=0){
+//                 return false;
+//             }
+//         }return true;
+//     }
+// }
