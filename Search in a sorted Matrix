@@ -1,0 +1,20 @@
+//gfg-Search in a sorted Matrix - bs 2d array
+
+class Solution {
+    public boolean searchMatrix(int[][] mat, int x) {
+        // code here
+        int r=0;
+        int c=mat[0].length-1;
+        while(r<mat.length && c>=0){
+            if(mat[r][c]==x){
+                return true;
+            }
+            else if(mat[r][c]>x){
+                c--;
+            }
+            else if(mat[r][c]<x){
+                r++;
+            }
+        }return false;
+    }
+}
