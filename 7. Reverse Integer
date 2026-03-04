@@ -1,0 +1,79 @@
+//7. Reverse Integer
+
+class Solution {
+    public int reverse(int x) {
+        return helper(x, 0);
+    }
+
+    private int helper(int x, int rev) {
+        if (x == 0) return rev;
+
+        int rem = x % 10;
+
+        // Check BEFORE multiplying
+        if (rev > Integer.MAX_VALUE / 10 || 
+           (rev == Integer.MAX_VALUE / 10 && rem > 7)) return 0;
+
+        if (rev < Integer.MIN_VALUE / 10 || 
+           (rev == Integer.MIN_VALUE / 10 && rem < -8)) return 0;
+
+        return helper(x / 10, rev * 10 + rem);
+    }
+}
+
+
+//works butt only for positive integers
+
+// class Solution {
+//     int sum=0;
+//     public int reverse(int x) {
+//        if(x==0){
+//         return 0;
+//        }
+//        int rem=x%10;
+//        sum=sum*10+rem;
+//        reverse(x/10);
+//        return sum;
+//     }
+// }
+
+
+// class Solution {
+//     public int reverse(int x) {
+//         int digit=(int)(Math.log10(x))+1;
+//         return helper(x,digit);
+//     }
+//     int helper(int n,int digits){
+//         if(n%10==n){
+//             return n;
+//         }
+//         else{
+//             return (n%10)*(int)Math.pow(10,digits-1)+helper(n/10,digits-1);
+//         }
+//     }
+// }
+
+
+
+
+//doesnt work for some cases--overflow error
+
+// class Solution {
+//     public int reverse(int x) {
+//         int neg=0;
+//         if(x<0){
+//             neg=1;
+//             x=x*-1;
+//         }
+//         int digit=(int)(Math.log10(x))+1;
+//         return neg==1?-1*helper(x,digit):helper(x,digit);
+//     }
+//     int helper(int n,int digits){
+//         if(n%10==n){
+//             return n;
+//         }
+//         else{
+//             return (n%10)*(int)Math.pow(10,digits-1)+helper(n/10,digits-1);
+//         }
+//     }
+// }
