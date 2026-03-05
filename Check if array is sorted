@@ -1,0 +1,14 @@
+//Check if array is sorted-gfg
+class Solution {
+    public boolean isSorted(int[] arr) {
+        // code here
+        return helper(arr,0);
+    }
+    boolean helper(int[] arr,int index){
+        if(index==arr.length-1){
+            return true;
+        }
+        return arr[index]<=arr[index+1]&&helper(arr,index+1);
+    }
+    
+}
